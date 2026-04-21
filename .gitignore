@@ -23,6 +23,10 @@ assets/uploads/
 .DS_Store
 Thumbs.db
 
+# Local dev notes
+command.txt
+commands.txt
+
 # Logs
 *.log
 
