@@ -25,9 +25,8 @@ def ecg_history(request: Request, db: Session = Depends(get_db)):
     )
 
     return templates.TemplateResponse(
-        "ecghistory.html",
+        request, "ecghistory.html",
         {
-            "request": request,
             "user_name": request.session.get("user_name"),
             "ecgs": ecgs,
         },
@@ -37,27 +36,24 @@ def ecg_history(request: Request, db: Session = Depends(get_db)):
 @router.delete("/ecg/{ecg_id}")
 async def delete_ecg(ecg_id: int, request: Request, db: Session = Depends(get_db)):
     user_id = request.session.get("user_id")
-    
+
     if not user_id:
         raise HTTPException(status_code=401, detail="Not authenticated")
-    
-    # Get the ECG from database
+
     ecg = db.query(ECGDatabase).filter(
         ECGDatabase.id == ecg_id,
         ECGDatabase.user_id == user_id
     ).first()
-    
+
     if not ecg:
         raise HTTPException(status_code=404, detail="ECG not found")
-    
-    # Delete the ECG image file if it exists
+
     if ecg.ecg_image_path and os.path.exists(ecg.ecg_image_path):
         try:
             os.remove(ecg.ecg_image_path)
         except Exception as e:
             print(f"Error deleting file: {e}")
-    
-    # Delete from database
+
     db.delete(ecg)
     db.commit()
     ecgs = (
@@ -67,9 +63,8 @@ async def delete_ecg(ecg_id: int, request: Request, db: Session = Depends(get_db
         .all()
     )
     return templates.TemplateResponse(
-        "ecghistory.html",
+        request, "ecghistory.html",
         {
-            "request": request,
             "user_name": request.session.get("user_name"),
             "ecgs": ecgs,
         },

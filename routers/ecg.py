@@ -17,11 +17,7 @@ def ecg(request: Request,auth=Depends(require_login)):
     if auth:
         return auth 
     user_name = request.session.get("user_name")
-    return templates.TemplateResponse(
-        "ecg.html",
-        {"request": request,
-         "user_name": user_name}
-    )
+    return templates.TemplateResponse(request, "ecg.html", {"user_name": user_name})
 @router.post("/ecg")
 async def submit_ecg(
     request: Request,

@@ -32,8 +32,7 @@ app.add_middleware(
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     user_name = request.session.get("user_name")
-    return templates.TemplateResponse("index.html", {"request": request,
-                                                     "user_name": user_name})
+    return templates.TemplateResponse(request, "index.html", {"user_name": user_name})
 
 
 app.include_router(login_router)

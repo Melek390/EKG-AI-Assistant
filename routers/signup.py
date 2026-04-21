@@ -14,10 +14,7 @@ templates = Jinja2Templates(directory="templates")
 
 @router.get("/signup", response_class=HTMLResponse, name="signup")
 def singup(request: Request):
-    return templates.TemplateResponse(
-        "signup.html",
-        {"request": request}
-    )
+    return templates.TemplateResponse(request, "signup.html", {})
 
 @router.post("/signup")
 def signup_user(
@@ -32,8 +29,8 @@ def signup_user(
 ):
     if password != confirm_password:
         return templates.TemplateResponse(
-            "signup.html",
-            {"request": request, "error": "Passwords do not match"},
+            request, "signup.html",
+            {"error": "Passwords do not match"},
             status_code=400
         )
 

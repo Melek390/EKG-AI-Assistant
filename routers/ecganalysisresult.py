@@ -80,12 +80,11 @@ def ecg_analysis_result(
         }
 
     return templates.TemplateResponse(
-        "ecganalysisresult.html",
+        request, "ecganalysisresult.html",
         {
-            "request": request,
             "user_name": request.session.get("user_name"),
             "ecg": ecg,
             "interpretation": interpretation,
-            "error_message": error_message
+            "error_message": error_message,
         }
     )
