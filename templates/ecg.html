@@ -1,0 +1,580 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Medic - HTML5 Hospital and Clinic Template</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+	<!-- Place favicon.ico in the root directory -->
+
+	<!-- ========================= CSS here ========================= -->
+	<link rel="stylesheet" href="assets/css/bootstrap-5.0.5-alpha.min.css">
+	<link rel="stylesheet" href="assets/css/LineIcons.2.0.css">
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="assets/css/tiny-slider.css">
+	<link rel="stylesheet" href="assets/css/main.css">
+
+	<style>
+		/* =========================
+   HEADER – FOOTER-LIKE STYLE
+   ========================= */
+
+/* Main header background */
+.header,
+.header-wrapper,
+.navbar-area {
+  background: linear-gradient(
+    135deg,
+    #020617 0%,
+    #020617 35%,
+    #020617 65%,
+    #020617 100%
+  );
+}
+/* Make header compact */
+.header {
+  padding: 0;
+}
+
+/* Reduce navbar vertical padding */
+.navbar {
+  padding: 10px 0;
+  min-height: unset;
+}
+
+/* Logo size control */
+.navbar-brand img {
+  height: 38px;   /* adjust if needed (32–42px sweet spot) */
+  width: auto;
+}
+
+/* Align items vertically */
+.navbar-expand-lg .navbar-nav {
+  align-items: center;
+}
+
+/* Reduce nav link padding */
+.navbar-nav .nav-link,
+.navbar-nav .page-scroll {
+  padding: 6px 12px;
+  font-size: 15px;
+}
+
+/* Remove extra spacing from container */
+.navbar-area .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+/* Top bar */
+.header-top {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Navbar links */
+.navbar-nav .nav-item a {
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-item a:hover {
+  color: #38bdf8; /* subtle accent */
+}
+
+/* Brand logo fix (if SVG is dark) */
+.navbar-brand img {
+  filter: invert(1);
+}
+
+/* Social icons */
+.header-top a,
+.header-top i {
+  color: #cbd5f5;
+}
+
+.header-top a:hover,
+.header-top i:hover {
+  color: #38bdf8;
+}
+
+/* Mobile toggler */
+.navbar-toggler .toggler-icon {
+  background-color: #e5e7eb;
+}
+	/* About image container */
+	.about-img {
+		width: 100%;
+		margin-top: 40px;
+	}
+
+	/* Responsive about image */
+	.about-img img {
+		width: 100%;
+		max-width: 1100px;   /* adjust width if needed */
+		height: auto;
+		display: block;
+		margin: 0 auto;
+		object-fit: cover;
+		border-radius: 14px; /* optional */
+	}
+
+	/* Mobile optimization */
+	@media (max-width: 768px) {
+		.about-img img {
+			max-width: 100%;
+			border-radius: 8px;
+		}
+	}
+	.service-icon-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+
+  /* Tint PNG to theme color */
+  filter: brightness(0) saturate(100%)
+          invert(47%) sepia(87%)
+          saturate(475%) hue-rotate(145deg)
+          brightness(95%) contrast(95%);
+}
+	.service-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.service-icon-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+/* Center image inside circular icon */
+.we-do-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+	/* =========================
+   Footer Styles
+========================= */
+.footer {
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #cbd5e1;
+    padding: 80px 0 40px;
+    font-size: 15px;
+}
+
+.footer .logo img {
+    max-width: 160px;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.footer h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links li a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #22d3ee;
+    padding-left: 6px;
+}
+
+.footer-social-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 14px;
+}
+
+.footer-social-links ul li a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.footer-social-links ul li a:hover {
+    background: #22d3ee;
+    color: #020617;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .footer {
+        text-align: center;
+    }
+
+    .footer-social-links ul {
+        justify-content: center;
+    }
+}
+	</style>
+</head>
+
+<body>
+	<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+	<!-- ========================= preloader start ========================= -->
+	<div class="preloader">
+		<div class="loader">
+			<div class="ytp-spinner">
+				<div class="ytp-spinner-container">
+					<div class="ytp-spinner-rotator">
+						<div class="ytp-spinner-left">
+							<div class="ytp-spinner-circle"></div>
+						</div>
+						<div class="ytp-spinner-right">
+							<div class="ytp-spinner-circle"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- preloader end -->
+
+	<!-- ========================= header start ========================= -->
+	<header id="home" class="header">
+
+		<div class="header-wrapper">
+				
+				<div class="navbar-area">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+								<nav class="navbar navbar-expand-lg">
+									<a class="navbar-brand" href="index.html">
+										<img src="assets/img/logo/logo.svg" alt="Logo">
+									</a>
+									<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+										aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+										<span class="toggler-icon"></span>
+										<span class="toggler-icon"></span>
+										<span class="toggler-icon"></span>
+									</button>
+				
+									<div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+										<ul id="nav" class="navbar-nav ml-auto">
+		
+											<li class="nav-item">
+												<a class="page-scroll" href="/">Home</a>
+											</li>
+											{% if user_name %}
+											<li class="nav-item dropdown">
+											<a class="nav-link dropdown-toggle d-flex align-items-center"
+												href="#"
+												id="userDropdown"
+												role="button"
+												data-bs-toggle="dropdown"
+												aria-expanded="false">
+
+												<div class="user-avatar">
+												{{ user_name[0]|upper}}
+												</div>
+
+											</a>
+
+											<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+												<li>
+												<a class="dropdown-item" href="/ecghistory">📄 History</a>
+												</li>
+												<li><hr class="dropdown-divider"></li>
+												<li>
+												<a class="dropdown-item text-danger" href="/logout">🚪 Logout</a>
+												</li>
+											</ul>
+                      {%endif%}
+											</li>
+										</ul>
+									</div> <!-- navbar collapse -->
+								</nav> <!-- navbar -->
+							</div>
+						</div> <!-- row -->
+					</div> <!-- container -->
+				</div> <!-- navbar area -->
+		</div>
+
+		
+	</header>
+	<!-- ========================= header end ========================= -->
+	<!-- ========================= MAIN FORM ========================= -->
+<section class="pt-120 pb-120 ecg-bg-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-8 col-lg-9">
+
+        <div class="section-title text-center mb-40 text-white">
+          <h2>ECG Clinical Analysis</h2>
+          <p class="text-light">
+            Provide optional clinical context. ECG image is required.
+          </p>
+        </div>
+
+        <form
+          action="/ecg"
+          method="post"
+          enctype="multipart/form-data"
+          class="card p-4 shadow-sm">
+
+          <!-- Patient Age -->
+          <div class="mb-3">
+            <label class="form-label">Patient Age</label>
+            <input type="number"
+                   name="age"
+                   class="form-control"
+                   placeholder="e.g. 65">
+          </div>
+
+          <!-- History / Medication -->
+          <div class="mb-3">
+            <label class="form-label">Medical History & Medications</label>
+            <textarea class="form-control"
+                      name="history"
+                      rows="3"
+                      placeholder="Hypertension, diabetes, beta-blockers..."></textarea>
+          </div>
+
+          <!-- Symptoms -->
+          <div class="mb-3">
+            <label class="form-label">Symptoms & Clinical Exam</label>
+            <textarea class="form-control"
+                      name="symptoms"
+                      rows="3"
+                      placeholder="Chest pain, dyspnea, syncope, BP, HR..."></textarea>
+          </div>
+
+          <!-- ========================= ECG UPLOAD (REQUIRED) ========================= -->
+          <!-- ECG Upload (REQUIRED) -->
+       <!-- ========================= ECG UPLOAD (REQUIRED) ========================= -->
+<div class="mb-4">
+
+  <label class="form-label fw-semibold">
+    ECG Image <span class="text-danger">(required)</span>
+  </label>
+
+  <!-- Upload buttons -->
+  <div class="ecg-upload-wrapper mb-3">
+
+    <button type="button" class="ecg-card" id="takePhotoBtn">
+      <i class="lni lni-camera"></i>
+      <span>Take ECG Photo</span>
+    </button>
+
+    <div class="ecg-or">OR</div>
+
+    <button type="button" class="ecg-card outline" id="uploadBtn">
+      <i class="lni lni-upload"></i>
+      <span>Upload ECG Image</span>
+    </button>
+
+  </div>
+
+  <small class="text-muted d-block mb-3">
+    You can either take a photo or upload an existing ECG image
+  </small>
+
+  <!-- Hidden file input -->
+  <input
+    type="file"
+    id="ecgInput"
+    name="ecg_image"
+    accept="image/*"
+    required
+    hidden
+  >
+
+  <!-- Preview (MUST be BEFORE submit buttons) -->
+  <div id="ecgPreviewWrapper" class="ecg-preview mt-3" style="display:none;">
+    <img id="ecgPreview" class="img-fluid rounded border" alt="ECG Preview">
+  </div>
+
+</div>
+
+<!-- ========================= ACTION BUTTONS ========================= -->
+<div class="d-flex gap-3 mt-4">
+
+  <button type="submit" class="btn theme-btn flex-fill">
+    Send
+  </button>
+
+  <button type="reset" id="clearBtn" class="btn btn-outline-theme flex-fill">
+    Clear
+  </button>
+
+</div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ========================= MAIN FORM END ========================= -->
+
+
+
+
+
+	<!-- ========================= footer start ========================= -->
+	<footer class="footer">
+    <div class="container">
+        <div class="row">
+
+            <!-- Brand / About (5 columns) -->
+            <div class="col-xl-5 col-lg-5 col-md-12 mb-30">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo/logo.svg" alt="Logo">
+                </a>
+                <p>
+                    A medical AI platform built by medical residents, focused on integrating
+                    machine learning and large language models into real clinical workflows.
+                </p>
+
+                <div class="footer-social-links">
+                    <ul>
+                        <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
+                        <li><a href="#"><i class="lni lni-twitter-filled"></i></a></li>
+                        <li><a href="#"><i class="lni lni-github-original"></i></a></li>
+                        <li><a href="#"><i class="lni lni-instagram-original"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Quick Links (3 columns) -->
+            <div class="col-xl-3 col-lg-3 col-md-6 mb-30">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#signup">Get Started</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </div>
+
+            <!-- Commitment (4 columns) -->
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <h4>Our Commitment</h4>
+                <ul class="footer-links">
+                    <li>Ethical AI & Data Privacy</li>
+                    <li>Clinician-Led Development</li>
+                    <li>Research-Driven Innovation</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Medical AI Platform — Designed by clinicians, powered by data.
+        </div>
+    </div>
+</footer>
+	<!-- ========================= footer end ========================= -->
+
+
+	<!-- ========================= scroll-top ========================= -->
+	<a href="#" class="scroll-top">
+		<i class="lni lni-arrow-up"></i>
+	</a>
+
+	<!-- ========================= JS here ========================= -->
+	<script src="assets/js/bootstrap.bundle-5.0.0.alpha-min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/tiny-slider.js"></script>
+	<script src="assets/js/main.js"></script>
+    <script>
+  const ecgInput = document.getElementById("ecgInput");
+  const takePhotoBtn = document.getElementById("takePhotoBtn");
+  const uploadBtn = document.getElementById("uploadBtn");
+  const previewWrapper = document.getElementById("ecgPreviewWrapper");
+  const previewImg = document.getElementById("ecgPreview");
+  const clearBtn = document.getElementById("clearBtn");
+
+  // Open camera or file picker
+  takePhotoBtn.addEventListener("click", () => {
+    ecgInput.setAttribute("capture", "environment");
+    ecgInput.click();
+  });
+
+  uploadBtn.addEventListener("click", () => {
+    ecgInput.removeAttribute("capture");
+    ecgInput.click();
+  });
+
+  // When image selected
+  ecgInput.addEventListener("change", () => {
+    if (!ecgInput.files || !ecgInput.files[0]) return;
+
+    const file = ecgInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      previewImg.src = reader.result;
+      previewWrapper.style.display = "block";
+
+      // Lock buttons after selection
+      takePhotoBtn.disabled = true;
+      uploadBtn.disabled = true;
+    };
+
+    reader.readAsDataURL(file);
+  });
+
+  // Clear everything
+  clearBtn.addEventListener("click", () => {
+    ecgInput.value = "";
+    previewImg.src = "";
+    previewWrapper.style.display = "none";
+
+    takePhotoBtn.disabled = false;
+    uploadBtn.disabled = false;
+  });
+</script>
+
+</body>
+
+</html>
+
